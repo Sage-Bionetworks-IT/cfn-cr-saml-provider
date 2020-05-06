@@ -1,0 +1,15 @@
+{
+    "RequestType": "Delete",
+    "ServiceToken": "arn:aws:lambda:us-east-1:804034162148:function:cfn-cr-saml-provider-Function-1D33TLDSB2OLR",
+    "ResponseURL": "https://cloudformation-custom-resource-response-useast1.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A804034162148%3Astack/jc-saml2/77b5fbe0-8fb1-11ea-9f12-12709ad3d671%7CSamlProvider%7C8c3abc16-72b9-40d0-bf0c-6eff07e6772b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200506T161344Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIA6L7Q4OWTTDPGOFMG%2F20200506%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=d92a9627acbea339f26b32db6d764655e880e7572b1ae92ee8ab6b3e4f46ac67",
+    "StackId": "arn:aws:cloudformation:us-east-1:804034162148:stack/jc-saml2/77b5fbe0-8fb1-11ea-9f12-12709ad3d671",
+    "RequestId": "8c3abc16-72b9-40d0-bf0c-6eff07e6772b",
+    "LogicalResourceId": "SamlProvider",
+    "PhysicalResourceId": "arn:aws:iam::804034162148:saml-provider/jc-idp2",
+    "ResourceType": "Custom::SAMLProvider",
+    "ResourceProperties": {
+        "ServiceToken": "arn:aws:lambda:us-east-1:804034162148:function:cfn-cr-saml-provider-Function-1D33TLDSB2OLR",
+        "URL": "https://jumpcloud-samlbucket-1jk290iwgzt67.s3.amazonaws.com/metadata/SAML.xml",
+        "Name": "jc-idp2"
+    }
+}

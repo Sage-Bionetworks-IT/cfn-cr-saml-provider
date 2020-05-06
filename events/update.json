@@ -1,0 +1,20 @@
+{
+    "RequestType": "Update",
+    "ServiceToken": "arn:aws:lambda:us-east-1:804034162148:function:cfn-cr-saml-provider-Function-1D33TLDSB2OLR",
+    "ResponseURL": "https://cloudformation-custom-resource-response-useast1.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A804034162148%3Astack/jc-saml2/a62884e0-8fb4-11ea-bf75-0ec446493c7d%7CSamlProvider%7Ca04c69e1-e245-4557-a709-448674034fde?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200506T175004Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIA6L7Q4OWTTDPGOFMG%2F20200506%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cb9b175aeb72dffd6867efd58cb7cbe848a85e894e476b98dff896f132e3a588",
+    "StackId": "arn:aws:cloudformation:us-east-1:804034162148:stack/jc-saml2/a62884e0-8fb4-11ea-bf75-0ec446493c7d",
+    "RequestId": "a04c69e1-e245-4557-a709-448674034fde",
+    "LogicalResourceId": "SamlProvider",
+    "PhysicalResourceId": "arn:aws:iam::804034162148:saml-provider/jc-idp2",
+    "ResourceType": "Custom::SAMLProvider",
+    "ResourceProperties": {
+        "ServiceToken": "arn:aws:lambda:us-east-1:804034162148:function:cfn-cr-saml-provider-Function-1D33TLDSB2OLR",
+        "URL": "https://idp-idpbucket-1cvmtdufd4tag.s3.amazonaws.com/jumpcloud/saml/certs/SAML.xml",
+        "Name": "jc-idp3"
+    },
+    "OldResourceProperties": {
+        "ServiceToken": "arn:aws:lambda:us-east-1:804034162148:function:cfn-cr-saml-provider-Function-1D33TLDSB2OLR",
+        "URL": "https://jumpcloud-samlbucket-1jk290iwgzt67.s3.amazonaws.com/metadata/SAML.xml",
+        "Name": "jc-idp2"
+    }
+}
