@@ -38,6 +38,8 @@ def create_provider(name, metadata, url):
     )
     physical_resource_id = response['SAMLProviderArn']
     logger.info("created SAML provider " + physical_resource_id)
+    data = { "Name": name }
+    helper.Data = data
     return physical_resource_id
 
 @helper.create
@@ -71,6 +73,8 @@ def update(event, context):
     )
     physical_resource_id = response['SAMLProviderArn']
     logger.info("updated SAML provider " + physical_resource_id)
+    data = { "Name": new_properties['Name'] }
+    helper.Data = data
     return physical_resource_id
 
 def lambda_handler(event, context):

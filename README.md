@@ -34,7 +34,44 @@ You can specify the following properties:
     "URL" - serving the metadata of the SAML Provider (required if Metadaga is missing)
 
 ## Return values
-The physical resource id is the ARN of the provider. There are no additional return attributes.
+When you pass the logical ID of this resource to the intrinsic Ref function, Ref returns the resource ARN.
+
+### Fn::GetAtt
+The Fn::GetAtt intrinsic function returns:
+
+    "Name" - Name of the SAML provider
+
+## Install
+Execute the below template snippet to deploy the SAML provider and associated role to an AWS account.
+
+```yaml
+  SandboxAdminSamlProvider:
+    Type : Custom::SAMLProvider
+    Properties:
+      ServiceToken: !ImportValue
+        'Fn::Sub': '${AWS::Region}-cfn-cr-saml-provider-FunctionArn'
+      Name: "itsandbox-admin"
+      Metadata: !Ref ItsandboxAdminMetadata
+      URL: ""
+  SandboxAdminSamlProviderRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !GetAtt SandboxAdminSamlProvider.Name
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !GetAtt SandboxAdminSamlProvider.Arn
+            Action: sts:AssumeRoleWithSAML
+            Condition:
+              StringEquals:
+                "SAML:aud": "https://signin.aws.amazon.com/saml"
+```
+
+__NOTE__: The `ManagedPolicyArns` in this example provider is associated to an admin role
 
 ## Development
 
