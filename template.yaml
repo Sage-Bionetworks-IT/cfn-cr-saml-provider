@@ -5,7 +5,7 @@ Description: >
 
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 5
 
 Resources:
   Function:
@@ -30,9 +30,19 @@ Resources:
               - sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-        - arn:aws:iam::aws:policy/IAMFullAccess
+        - !Ref FunctionRolePolicy
 
+  FunctionRolePolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: GetAndPutBucketTags
+            Effect: 'Allow'
+            Action:
+              - iam:*SAMLProvider
+            Resource: '*'
 Outputs:
   Function:
     Value: !GetAtt Function.Arn
