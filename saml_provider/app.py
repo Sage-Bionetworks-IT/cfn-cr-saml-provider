@@ -28,8 +28,9 @@ def get_metadata(url):
     response = requests.get(url)
     metadata = response.text
     logger.info("metadata = " + metadata)
-    if response.status_code == 200:
-        return metadata
+    if response.status_code != requests.codes.ok:
+        raise response.raise_for_status()
+    return metadata
 
 def create_provider(name, metadata, url):
     response = client.create_saml_provider(
