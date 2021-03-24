@@ -1,3 +1,5 @@
+# This custom resource is deprecated, please use the [AWS officially supported SAML resource provider](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html)
+
 # Overview
 A CloudFormation custom resource provider for creating a SAML identity provider.
 
